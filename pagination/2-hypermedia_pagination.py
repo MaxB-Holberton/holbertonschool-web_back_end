@@ -36,3 +36,23 @@ class Server:
         self.dataset()
         selected_range = self.index_range(page, page_size)
         return self.__dataset[selected_range[0]: selected_range[1]]
+
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> List[List]:
+        data = self.get_page(page, page_size)
+        rtnDict = {}
+        rtnDict['page_size'] = len(data)
+        rtnDict['page'] = page
+        rtnDict['data'] = data
+
+        if (len(data) == 0):
+            rtnDict['next_page'] = None
+        else:
+            rtnDict['next_page'] = page + 1
+
+        if (page - 1 == 0):
+            rtnDict['prev_page'] = None
+        else:
+            rtnDict['prev_page'] = page - 1
+
+        rtnDict['total_pages'] = math.ceil(len(self.__dataset) / page_size)
+        return rtnDict
