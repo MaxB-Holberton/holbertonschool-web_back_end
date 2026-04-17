@@ -29,14 +29,18 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """
+            function to get the page
+        """
         assert type(page_size) is int
         assert type(page) is int
         assert page > 0
         assert page_size > 0
         self.dataset()
-        selected_range = self.index_range(page, page_size)
+        rng = self.index_range(page, page_size)
+        datalen = len(self.__dataset)
 
-        try:
-            return self.__dataset[selected_range[0]: selected_range[1]]
-        except:
+        if rng[0] > datalen or rng[1] > datalen:
             return []
+
+        return self.__dataset[rng[0]: rng[1]]
