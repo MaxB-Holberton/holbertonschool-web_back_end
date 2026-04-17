@@ -1,3 +1,9 @@
+#!/usr/bin/env python3
+"""
+    module for hypermedia pagination
+"""
+
+
 import csv
 import math
 from typing import List
