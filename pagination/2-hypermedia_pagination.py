@@ -35,7 +35,11 @@ class Server:
         assert page_size > 0
         self.dataset()
         selected_range = self.index_range(page, page_size)
-        return self.__dataset[selected_range[0]: selected_range[1]]
+
+        try:
+            return self.__dataset[selected_range[0]: selected_range[1]]
+        except:
+            return []
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> List[List]:
         data = self.get_page(page, page_size)

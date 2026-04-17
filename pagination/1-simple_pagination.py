@@ -35,4 +35,8 @@ class Server:
         assert page_size > 0
         self.dataset()
         selected_range = self.index_range(page, page_size)
-        return self.__dataset[selected_range[0]: selected_range[1]]
+
+        try:
+            return self.__dataset[selected_range[0]: selected_range[1]]
+        except:
+            return []
