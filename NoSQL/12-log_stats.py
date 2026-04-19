@@ -12,13 +12,14 @@ def total_logs(mongo_collection):
         returns the total number of logs
     """
     res = mongo_collection.count_documents({})
-    print(f"{result} logs")
+    print(f"{res} logs")
 
 def count_methods(mongo_collection):
     """
         returns the number of each method
     """
     method_list = ["GET", "POST", "PUT", "PATCH", "DELETE"]
+    print("Methods:")
     for item in method_list:
         count = mongo_collection.count_documents({"method": {"$regex": item}})
         print(f"\tmethod {item}: {count}")
