@@ -14,6 +14,7 @@ def total_logs(mongo_collection):
     res = mongo_collection.count_documents({})
     print(f"{res} logs")
 
+
 def count_methods(mongo_collection):
     """
         returns the number of each method
@@ -24,12 +25,15 @@ def count_methods(mongo_collection):
         count = mongo_collection.count_documents({"method": item})
         print(f"\tmethod {item}: {count}")
 
+
 def status_check(mongo_collection):
     """
         checks the status
     """
-    status_check = mongo_collection.count_documents({"method": "GET", "path": "/status"})
-    print(f"{status_check} status check")
+    status = mongo_collection.count_documents({"method": "GET",
+                                               "path": "/status"})
+    print(f"{status} status check")
+
 
 if __name__ == "__main__":
     """
@@ -40,4 +44,3 @@ if __name__ == "__main__":
     total_logs(mongo_collection)
     count_methods(mongo_collection)
     status_check(mongo_collection)
-
