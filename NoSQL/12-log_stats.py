@@ -24,7 +24,7 @@ def count_methods(mongo_collection):
         count = mongo_collection.count_documents({"method": item})
         print(f"\tmethod {item}: {count}")
 
-def status_chck(mongo_collection):
+def status_check(mongo_collection):
     """
         checks the status
     """
