@@ -21,14 +21,14 @@ def count_methods(mongo_collection):
     method_list = ["GET", "POST", "PUT", "PATCH", "DELETE"]
     print("Methods:")
     for item in method_list:
-        count = mongo_collection.count_documents({"method": {"$regex": item}})
+        count = mongo_collection.count_documents({"method": item})
         print(f"\tmethod {item}: {count}")
 
 def status_chck(mongo_collection):
     """
         checks the status
     """
-    status_check = mongo_collection.count_documents({"path": "/status"})
+    status_check = mongo_collection.count_documents({"method": "GET", "path": "/status"})
     print(f"{status_check} status check")
 
 if __name__ == "__main__":
