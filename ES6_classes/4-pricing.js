@@ -1,33 +1,32 @@
-import Currency from "./3-currency";
+import Currency from './3-currency';
 
-export default class Pricing
-{
-	static convertPrice(amount, conversionRate){
-		return amount * conversionRate;
-	}
+export default class Pricing {
+  static convertPrice(amount, conversionRate) {
+    return amount * conversionRate;
+  }
 
-	constructor(amount, currency){
-		this._amount = amount;
-		this._currency = currency;
-	}
+  constructor(amount, currency) {
+    this._amount = amount;
+    this._currency = currency;
+  }
 
-	displayFullPrice(){
-		return this._amount + " " + this._currency.displayFullCurrency();
-	}
+  displayFullPrice() {
+    return `${this._amount} ${this._currency.displayFullCurrency()}`;
+  }
 
-	get amount() {
-		return this._amount;
-	}
+  get amount() {
+    return this._amount;
+  }
 
-	get currency() {
-		return this._currency;
-	}
+  get currency() {
+    return this._currency;
+  }
 
-	set amount(amount){
-		this._amount = amount;
-	}
+  set amount(amount) {
+    this._amount = amount;
+  }
 
-	set currency(currency){
-		this._currency = currency;
-	}
+  set currency(currency) {
+    this._currency = currency;
+  }
 }
