@@ -1,6 +1,6 @@
 const cleanSet = (theset, startString) => {
   let rtn = '';
-  if (startString === '') {
+  if (startString === '' || startString.length === 0) {
     return rtn;
   }
   theset.forEach((item) => {
