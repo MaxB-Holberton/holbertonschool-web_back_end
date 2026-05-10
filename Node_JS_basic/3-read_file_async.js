@@ -9,23 +9,22 @@ function countStudents(path) {
       }
 
       const rows = file.split('\n');
-      const cs_list = [];
-      const swe_list = [];
+      const csList = [];
+      const sweList = [];
       let count = 0;
-      rows.forEach(row => {
-        const item = row.split(",");
-        if (item[3] === "CS") {
-          cs_list.push(item[0]);
-          count++;
-        }
-        else if (item[3] === "SWE") {
-          swe_list.push(item[0]);
-          count++;
+      rows.forEach((row) => {
+        const item = row.split(',');
+        if (item[3] === 'CS') {
+          csList.push(item[0]);
+          count += 1;
+        } else if (item[3] === 'SWE') {
+          sweList.push(item[0]);
+          count += 1;
         }
       });
-      let newresponse = 'Number of students: ' + count;
-      newresponse += "\nNumber of students in CS: " + cs_list.length + ". List: " + cs_list.toString().split(',').join(', ');
-      newresponse += "\nNumber of students in SWE: " + swe_list.length + ". List: " + swe_list.toString().split(',').join(', ');
+      let newresponse = `Number of students: ${count}`;
+      newresponse += `\nNumber of students in CS: ${csList.length}. List: ${csList.toString().split(',').join(', ')}`;
+      newresponse += `\nNumber of students in SWE: ${sweList.length}. List: ${sweList.toString().split(',').join(', ')}`;
       resolve(newresponse);
       console.log(newresponse);
     });

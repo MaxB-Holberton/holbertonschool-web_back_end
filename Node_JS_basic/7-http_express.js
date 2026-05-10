@@ -1,7 +1,8 @@
-const express = require('express')
+const express = require('express');
 const countStudents = require('./3-read_file_async');
-const app = express()
-const port = 1245
+
+const app = express();
+const port = 1245;
 
 const dbname = process.argv[2];
 
@@ -10,7 +11,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/students', (req, res) => {
-  const msg = "This is the list of our students\n";
+  const msg = 'This is the list of our students\n';
   try {
     const students = countStudents(dbname);
     students.then((val) => {
@@ -22,7 +23,7 @@ app.get('/students', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Example app listening on port ${port}`);
 });
 
 module.exports = app;

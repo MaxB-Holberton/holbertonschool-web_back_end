@@ -19,17 +19,15 @@ const app = createServer((req, res) => {
     } catch (err) {
       res.end(err.message);
     }
-  }
-  else if (req.url === '/') {
+  } else if (req.url === '/') {
     res.end('Hello Holberton School!');
-  }
-  else {
+  } else {
     res.statusCode = 404;
     res.end('err');
   }
 });
 
-app.listen(port, host, () => {
+app.listen((port, host), () => {
   console.log(`Server running at http://${host}:${port}`);
 });
 
