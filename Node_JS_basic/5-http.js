@@ -14,7 +14,8 @@ const app = createServer((req, res) => {
     try {
       const students = countStudents(dbname);
       students.then((val) => {
-        res.end(val);
+        res.write(val);
+        res.end();
       });
     } catch (err) {
       res.end(err.message);
@@ -27,8 +28,6 @@ const app = createServer((req, res) => {
   }
 });
 
-app.listen((port, host), () => {
-  console.log(`Server running at http://${host}:${port}`);
-});
+app.listen(port, host);
 
 module.exports = app;
