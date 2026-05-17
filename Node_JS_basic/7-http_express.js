@@ -15,10 +15,10 @@ app.get('/students', (req, res) => {
   try {
     const students = countStudents(dbname);
     students.then((val) => {
-      res.send(msg + val);
+      res..status(200).send(msg + val);
     });
   } catch (err) {
-    res.send(err.message);
+    res.status(404).send(err.message);
   }
 });
 
